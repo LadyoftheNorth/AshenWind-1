@@ -16,7 +16,7 @@ Sprite::~Sprite()
 bool Sprite::LoadFromFile( std::string path )
 {
 	//Get rid of preexisting texture
-	free();
+	FreeTexture();
 
 	//The final texture
 	SDL_Texture* newTexture = NULL;

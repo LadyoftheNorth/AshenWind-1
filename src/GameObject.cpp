@@ -1,18 +1,7 @@
-#include <iostream>
-#include <string>
-#include <cmath>
-
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_timer.h>
-
-#include "GameEngine.h"
 #include "GameObject.h"
 
-GameObject::GameObject(SDL_Renderer* ren)
-{
-    obj_renderer = ren;
-}
+GameObject::GameObject(SDL_Renderer* ren) : 
+    objRenderer {ren} 
 
 void GameObject::init(const char* graphic, int start_x, int start_y, int w, int h)
 {

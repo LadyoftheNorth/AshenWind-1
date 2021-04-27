@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-#include "GameEngine.h"
+#include "GameObject.h"
 
 class Sprite
 {

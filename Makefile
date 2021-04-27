@@ -6,7 +6,7 @@ CXX = g++
 #   Note: If you're up to the challenge, I left my compiler flags here. It adds way
 #   more warning flags, and uses the -Werror flag, meaning the program won't compile
 #   if it finds a warning...
-CXXFLAGS = `sdl2-config --cflags` -std=c++17 -ggdb3 -Wall  #Add more flags as you see fit!
+CXXFLAGS = `sdl2-config -I/usr/include/SDL2 --cflags` -std=c++17 -ggdb3 -Wall  #Add more flags as you see fit!
 # CXXFLAGS = -`sdl2-config --cflags` std=c++17 -ggdb3 -Wall -W -Werror -Weffc++ -Wextra -pedantic
 LDFLAGS = `sdl2-config --libs` -lm -lSDL2_image -lSDL2_ttf
 

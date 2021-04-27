@@ -1,7 +1,7 @@
 #ifndef COLLISIONS_H
 #define COLLISIONS_H
-#include <SDL2/SDL.h>
-#include "Object.h"
+
+#include "GameObject.h"
 
 class CollisionDetector 
 {
