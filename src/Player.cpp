@@ -23,7 +23,7 @@ Player::~Player()
 {
 }
 
-void Player::PlayerInit(const char* graphic, int start_x, int start_y, int w, int h);
+void Player::PlayerInit(const char* graphic, int start_x, int start_y, int w, int h)
 {
     player_obj->init(graphic, start_x, start_y, w, h, 0, 0);
     playerSprite = new Sprite(playerRenderer, graphic, 32, 42);
