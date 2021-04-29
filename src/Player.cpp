@@ -26,8 +26,11 @@ Player::~Player()
 void Player::PlayerInit(const char* graphic, int start_x, int start_y, int w, int h)
 {
     player_obj->init(graphic, start_x, start_y, w, h, 0, 0);
-    playerSprite = new Sprite(playerRenderer, graphic, 32, 42);
+    playerSprite = new Sprite(playerRenderer, graphic, 32, 44);
     frame = 0;
+
+    spriteRect.w = 32;
+    spriteRect.h = 44;
 }
 
 void Player::PlayerUpdate()
@@ -36,70 +39,97 @@ void Player::PlayerUpdate()
 
     if (GetPlayerVelocityX() < 0)
     {
-        if (player_move == Left)
+        if (player_move == 3)
         {
             frame = (frame + 1) % 8;
             spriteRect.y = frame * 42;
-        } else 
+        } else
         {
             frame = 0;
-            playerSprite->LoadFromFile("./Left.png");
+            playerSprite->LoadFromFile("./img/Left.png");
             spriteRect.y = 0;
             spriteRect.h = 42;
+            player_move = LEFT;
         }
-    } else 
+    } else
     if (GetPlayerVelocityX() > 0)
     {
-        if (player_move == Right)
+        if (player_move == 4)
         {
             frame = (frame + 1) % 8;
             spriteRect.y = frame * 42;
-        } else 
+        } else
         {
             frame = 0;
-            playerSprite->LoadFromFile("./Right.png");
+            playerSprite->LoadFromFile("./img/Right.png");
             spriteRect.y = 0;
             spriteRect.h = 42;
+            player_move = RIGHT;
         }
-    } else 
+    } else
     if (GetPlayerVelocityY() < 0)
     {
-        if (player_move == Left)
+        if (player_move == 1)
         {
             frame = (frame + 1) % 8;
             spriteRect.y = frame * 48;
-        } else 
+        } else
         {
             frame = 0;
-            playerSprite->LoadFromFile("./Left.png");
+            playerSprite->LoadFromFile("./img/Up.png");
             spriteRect.y = 0;
             spriteRect.h = 48;
+            player_move = UP;
         }
-    } else 
+    } else
     if (GetPlayerVelocityY() > 0)
     {
-        if (player_move == Left)
+        if (player_move == 2)
         {
             frame = (frame + 1) % 8;
             spriteRect.y = frame * 48;
-        } else 
+        } else
         {
             frame = 0;
-            playerSprite->LoadFromFile("./Left.png");
+            playerSprite->LoadFromFile("./img/Down.png");
             spriteRect.y = 0;
             spriteRect.h = 48;
+            player_move = DOWN;
         }
     } else
     {
         frame = 0;
         spriteRect.y = 0;
+        player_move = IDLE;
     }
+
+    if (GetPlayerPositionX() < 0)
+    {
+      UpdatePlayerPosition(0, GetPlayerPositionY());
+    }
+
+    if (GetPlayerPositionX() > 600)
+    {
+      UpdatePlayerPosition(600, GetPlayerPositionY());
+    }
+
+    if (GetPlayerPositionY() < 0)
+    {
+      UpdatePlayerPosition(GetPlayerPositionX(), 0);
+    }
+
+    if (GetPlayerPositionY() > 450)
+    {
+      UpdatePlayerPosition(GetPlayerPositionX(), 450);
+    }
+
+    printf("%d  [%d, %d]\n", player_move, GetPlayerPositionX(), GetPlayerPositionY());
 
 }
 
 void Player::PlayerRender(SDL_Renderer* ren)
 {
-    playerSprite->render(player_obj->obj_get_x_pos(), player_obj->obj_get_y_pos(), spriteRect)
+    playerSprite->render(GetPlayerPositionX(), GetPlayerPositionY(), &spriteRect);
 }
 
 //Adds to / Subtracts from Position and Velocity
