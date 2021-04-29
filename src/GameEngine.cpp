@@ -18,6 +18,7 @@ GameEngine::GameEngine()
   my_renderer = SDL_CreateRenderer(my_window,-1,0);
 
   player = new Player();
+  player->init("./Player.png", 100, 100, 50, 50);
 
   RunCurrentGame();
 }
@@ -96,11 +97,14 @@ void GameEngine::HandleEvents()
     }
 
     //Collision Check/Handling
+
+
 }
 
 void GameEngine::UpdateMechanics()
 {
     //FunctionNotImplementedException
+    player->PlayerUpdate();
 }
 
 void GameEngine::Render()
@@ -116,6 +120,7 @@ void GameEngine::Render()
     SDL_RenderClear(my_renderer);
 
     //Render Copy and/or Render Fill
+    player->PlayerRender(my_renderer);
 
     //SDL_RenderCopy(my_renderer, standinTexture, NULL, &standinRect);
     //SDL_RenderFillRect(my_renderer, &standinFillRect);

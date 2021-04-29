@@ -24,6 +24,8 @@ public:
     ~Player();
 
     void PlayerInit(const* char graphic, int start_x, int start_y, int w, int h);
+    void PlayerUpdate();
+    void PlayerRender(SDL_Renderer* ren);s
 
     //Adds to / Subtracts from Position and Velocity
     void UpdatePlayerPosition(int x, int y);

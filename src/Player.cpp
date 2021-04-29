@@ -20,6 +20,16 @@ void PlayerInit(const* char graphic, int start_x, int start_y, int w, int h)
     player_obj->init(graphic, start_x, start_y, w, h);
 }
 
+void PlayerUpdate()
+{
+    player_obj->update();
+}
+
+void PlayerRenderer(SDL_Renderer* ren)
+{
+    player_obj->render(ren);
+}
+
 //Adds to / Subtracts from Position and Velocity
 void UpdatePlayerPosition(int x, int y)
 {
