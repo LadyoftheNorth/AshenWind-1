@@ -1,31 +1,33 @@
+#ifndef PLAYER_H
+#define PLAYER_H
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "GameEngine.h"
 #include "GameObject.h"
 
-class Player: public GameObject
+class Player
 {
 private:
-    GameObject* player_obj
+    GameObject* player_obj;
 
-    static const PLAYER_WIDTH = 1;
-    static const PLAYER_HEIGHT = 1;
+    static const int PLAYER_WIDTH = 1;
+    static const int PLAYER_HEIGHT = 1;
     
     static const int START_PLAYER_HEALTH = 5;
 
     int playerHealth;
 
     SDL_Rect playerCollider;
-    Sprite playerSprite;
+    Sprite* playerSprite;
 
 public:
     Player(SDL_Renderer* ren);
     ~Player();
 
-    void PlayerInit(const* char graphic, int start_x, int start_y, int w, int h);
+    void PlayerInit(const char* graphic, int start_x, int start_y, int w, int h);
     void PlayerUpdate();
-    void PlayerRender(SDL_Renderer* ren);s
+    void PlayerRender(SDL_Renderer* ren);
 
     //Adds to / Subtracts from Position and Velocity
     void UpdatePlayerPosition(int x, int y);
@@ -45,3 +47,4 @@ public:
 
     GameObject* GetGameObject();
 };
+#endif

@@ -1,5 +1,5 @@
-#ifndef OBJECT_H
-#define OBJECT_H
+#ifndef GAMEOBJECT_H
+#define GAMEOBJECT_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,13 +13,20 @@
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
+#include "Sprite.h"
+
+class Sprite;
 
 class GameObject 
 {
     private:
     SDL_Renderer* obj_renderer;
     SDL_Texture* obj_texture;
+
+    Sprite* obj_sprite;
+
     SDL_Rect obj_rect;
+
     int obj_x_vel;
     int obj_y_vel;
 

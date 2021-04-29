@@ -26,7 +26,7 @@ void GameObject::update()
 
 void GameObject::render(SDL_Renderer* ren)
 {
-    SDL_RenderCopy(ren, obj_Texture, NULL, &obj_rect);
+    SDL_RenderCopy(ren, obj_texture, NULL, &obj_rect);
 }
 
 void GameObject::quit()

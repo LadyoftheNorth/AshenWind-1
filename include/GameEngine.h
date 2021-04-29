@@ -1,8 +1,13 @@
+#ifndef GAMEENGINE_H
+#define GAMEENGINE_H
+
 #include "GameObject.h"
 #include "Player.h"
 #include "Sprite.h"
 
 enum GAME_STATE_ENUM {INVALID = -1 , STOPPED = 0 , PAUSED = 1 , RUNNING = 2};
+
+class Player;
 
 class GameEngine
 {
@@ -18,7 +23,7 @@ private:
     const int FRAME_DURATION = 1000 / 60; 
 
     //Player Character
-    Player player;
+    Player* player;
 
 public:
 
@@ -40,3 +45,4 @@ public:
 
     void Render();
 };
+#endif

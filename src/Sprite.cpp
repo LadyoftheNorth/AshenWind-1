@@ -1,11 +1,12 @@
 #include "Sprite.h"
 
-Sprite::Sprite()
+Sprite::Sprite(SDL_Renderer* ren, const char* graphic, int width, int height)
 {
 	//Initialize
-	spriteTexture = NULL;
-	spriteWidth = 0;
-	spriteHeight = 0;
+	my_renderer = ren;
+	spriteTexture = SDL_CreateTextureFromSurface(my_renderer, IMG_Load(graphic));
+	spriteWidth = width;
+	spriteHeight = height;
 }
 
 Sprite::~Sprite()
@@ -33,7 +34,7 @@ bool Sprite::LoadFromFile( std::string path )
 		SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, 0, 0xFF, 0xFF ) );
 
 		//Create texture from surface pixels
-        newTexture = SDL_CreateTextureFromSurface( gRenderer, loadedSurface );
+        newTexture = SDL_CreateTextureFromSurface( my_renderer, loadedSurface );
 		if( newTexture == NULL )
 		{
 			printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
@@ -78,7 +79,7 @@ void Sprite::render( int x, int y, SDL_Rect* clip, double angle, SDL_Point* cent
 	}
 
 	//Render to screen
-	SDL_RenderCopyEx( gRenderer, spriteTexture, clip, &renderQuad, angle, center, flip );
+	SDL_RenderCopyEx( my_renderer, spriteTexture, clip, &renderQuad, angle, center, flip );
 }
 
 int Sprite::getWidth()

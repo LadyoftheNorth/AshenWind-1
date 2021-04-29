@@ -1,3 +1,6 @@
+#ifndef SPRITE_H
+#define SPRITE_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
@@ -8,7 +11,7 @@
 class Sprite
 {
 	public:
-		Sprite();
+		Sprite(SDL_Renderer* ren, const char* graphic, int width = 0, int height = 0);
 		~Sprite();
 
 		//Loads image at specified path
@@ -25,6 +28,9 @@ class Sprite
 		int getHeight();
 
 	private:
+		//The SDL Renderer
+		SDL_Renderer* my_renderer;
+
 		//The actual hardware texture
 		SDL_Texture* spriteTexture;
 
@@ -32,3 +38,5 @@ class Sprite
 		int spriteWidth;
 		int spriteHeight;
 };
+
+#endif

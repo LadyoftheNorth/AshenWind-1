@@ -17,8 +17,8 @@ GameEngine::GameEngine()
 
   my_renderer = SDL_CreateRenderer(my_window,-1,0);
 
-  player = new Player();
-  player->init("./Player.png", 100, 100, 50, 50);
+  player = new Player(my_renderer);
+  player->PlayerInit("./Player.png", 100, 100, 50, 50);
 
   RunCurrentGame();
 }
@@ -71,26 +71,26 @@ void GameEngine::HandleEvents()
             {
             case SDLK_w:
             case SDLK_UP:
-                player.UpdatePlayerVelocity(0, -5);
+                player->UpdatePlayerVelocity(0, -5);
                 break;
             
             case SDLK_a:
             case SDLK_LEFT:
-                player.UpdatePlayerVelocity(-5, 0);
+                player->UpdatePlayerVelocity(-5, 0);
                 break;
 
             case SDLK_s:
             case SDLK_DOWN:
-                player.UpdatePlayerVelocity(0, 5);
+                player->UpdatePlayerVelocity(0, 5);
                 break;
 
             case SDLK_d:
             case SDLK_RIGHT:
-                player.UpdatePlayerVelocity(5, 0);
+                player->UpdatePlayerVelocity(5, 0);
                 break;
 
             default:
-                player.UpdatePlayerVelocity(0, 0);
+                player->UpdatePlayerVelocity(0, 0);
                 break;
             }
         }
