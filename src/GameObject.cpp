@@ -1,12 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cmath>
-
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_timer.h>
-
-#include "GameEngine.h"
 #include "GameObject.h"
 
 GameObject::GameObject(SDL_Renderer* ren)

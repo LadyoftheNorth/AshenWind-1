@@ -4,7 +4,7 @@
 #include "GameEngine.h"
 #include "GameObject.h"
 
-class Player
+class Player: public GameObject
 {
 private:
     GameObject* player_obj
@@ -12,7 +12,7 @@ private:
     static const PLAYER_WIDTH = 1;
     static const PLAYER_HEIGHT = 1;
     
-    static const START_PLAYER_HEALTH = 5;
+    static const int START_PLAYER_HEALTH = 5;
 
     int playerHealth;
 
@@ -20,7 +20,7 @@ private:
     Sprite playerSprite;
 
 public:
-    Player();
+    Player(SDL_Renderer* ren);
     ~Player();
 
     void PlayerInit(const* char graphic, int start_x, int start_y, int w, int h);

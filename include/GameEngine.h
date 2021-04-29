@@ -1,16 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
-#include <string>
-#include <vector>
-
-#include "build/SDL2.dll"
-#include <SDL2.dll/SDL.h> 
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_timer.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_ttf.h>
-
+#include "GameObject.h"
 #include "Player.h"
 #include "Sprite.h"
 

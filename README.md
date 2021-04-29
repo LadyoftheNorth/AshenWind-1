@@ -8,3 +8,13 @@ Members:
   Tristan C Gill 
 
   Benjamin Rhys Gerrish
+
+Instructions:
+
+  *Move with WASD
+
+  *Attack with E
+
+  *Get all Supply Bags to win
+
+  *Lose if HP hits zero from contact with Infected
