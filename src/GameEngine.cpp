@@ -18,7 +18,7 @@ GameEngine::GameEngine()
   my_renderer = SDL_CreateRenderer(my_window,-1,0);
 
   player = new Player(my_renderer);
-  player->PlayerInit("./Player.png", 100, 100, 50, 50);
+  player->PlayerInit("./Right.png", 100, 100, 50, 50, 32, 42);
 
   RunCurrentGame();
 }

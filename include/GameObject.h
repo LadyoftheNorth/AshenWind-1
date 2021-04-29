@@ -32,7 +32,7 @@ class GameObject
 
     public:
         GameObject(SDL_Renderer* ren);
-        void init(const char* graphic, int start_x, int start_y, int w, int h);
+        void init(const char* graphic, int start_x, int start_y, int obj_w, int obj_h, int spr_w, int spr_h);
         void update();
         void render(SDL_Renderer*);
         void quit();

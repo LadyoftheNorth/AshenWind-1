@@ -2,14 +2,18 @@
 #define PLAYER_H
 #include <stdio.h>
 #include <stdlib.h>
+#include <SDL2/SDL.h>
 
 #include "GameEngine.h"
 #include "GameObject.h"
+
+enum MOVEMENT {IDLE, UP, DOWN, LEFT, RIGHT};
 
 class Player
 {
 private:
     GameObject* player_obj;
+    MOVEMENT player_move;
 
     static const int PLAYER_WIDTH = 1;
     static const int PLAYER_HEIGHT = 1;
@@ -17,8 +21,11 @@ private:
     static const int START_PLAYER_HEALTH = 5;
 
     int playerHealth;
+    int frame;
 
+    SDL_Renderer* playerRenderer;
     SDL_Rect playerCollider;
+    SDL_Rect spriteRect;
     Sprite* playerSprite;
 
 public:

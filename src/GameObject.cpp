@@ -4,18 +4,23 @@ GameObject::GameObject(SDL_Renderer* ren)
 {
     obj_renderer = ren;
     obj_texture = NULL;
+    obj_sprite = NULL;
 }
 
-void GameObject::init(const char* graphic, int start_x, int start_y, int w, int h)
+void GameObject::init(const char* graphic, int start_x, int start_y, int obj_w, int obj_h, int spr_w, int spr_h)
 {
+    obj_sprite = new Sprite(obj_renderer, graphic, spr_w, spr_h);
+
+    /*
     SDL_Surface* temp = IMG_Load(graphic);
     obj_texture = SDL_CreateTextureFromSurface(obj_renderer, temp);
     SDL_FreeSurface(temp);
+    */
 
     obj_rect.x = start_x;
     obj_rect.y = start_y;
-    obj_rect.w = w;
-    obj_rect.h = h;
+    obj_rect.w = obj_w;
+    obj_rect.h = obj_h;
 }
 
 void GameObject::update()
