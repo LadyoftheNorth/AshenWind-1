@@ -99,7 +99,7 @@ void Player::PlayerUpdate()
 
 void Player::PlayerRender(SDL_Renderer* ren)
 {
-    playerSprite->render(player_obj->obj_get_x_pos(), player_obj->obj_get_y_pos, spriteRect)
+    playerSprite->render(player_obj->obj_get_x_pos(), player_obj->obj_get_y_pos(), spriteRect)
 }
 
 //Adds to / Subtracts from Position and Velocity
