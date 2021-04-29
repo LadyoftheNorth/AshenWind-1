@@ -41,8 +41,8 @@ void Player::PlayerUpdate()
     {
         if (player_move == 3)
         {
-            frame = (frame + 1) % 8;
-            spriteRect.y = frame * 42;
+            frame += 1;
+            spriteRect.y = ((frame / 6) % 7) * 48;
         } else
         {
             frame = 0;
@@ -56,8 +56,8 @@ void Player::PlayerUpdate()
     {
         if (player_move == 4)
         {
-            frame = (frame + 1) % 8;
-            spriteRect.y = frame * 42;
+            frame += 1;
+            spriteRect.y = ((frame / 6) % 7) * 48;
         } else
         {
             frame = 0;
@@ -71,8 +71,8 @@ void Player::PlayerUpdate()
     {
         if (player_move == 1)
         {
-            frame = (frame + 1) % 8;
-            spriteRect.y = frame * 48;
+            frame += 1;
+            spriteRect.y = ((frame / 6) % 8) * 48;
         } else
         {
             frame = 0;
@@ -86,8 +86,8 @@ void Player::PlayerUpdate()
     {
         if (player_move == 2)
         {
-            frame = (frame + 1) % 8;
-            spriteRect.y = frame * 48;
+            frame += 1;
+            spriteRect.y = ((frame / 6) % 8) * 48;
         } else
         {
             frame = 0;
@@ -122,9 +122,6 @@ void Player::PlayerUpdate()
     {
       UpdatePlayerPosition(GetPlayerPositionX(), 450);
     }
-
-    printf("%d  [%d, %d]\n", player_move, GetPlayerPositionX(), GetPlayerPositionY());
-
 }
 
 void Player::PlayerRender(SDL_Renderer* ren)

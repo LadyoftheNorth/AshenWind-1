@@ -6,9 +6,10 @@ int main()
 { 
   GameEngine* engine = new GameEngine();
   
+  int fps = 30;
   int startTime = 0;
   int currentDuration = 0;
-  int frameDuration = 0;
+  int frameDuration = 1 + 1000 / fps;
 
   while(engine->GetCurrentGameState() == RUNNING){
     
