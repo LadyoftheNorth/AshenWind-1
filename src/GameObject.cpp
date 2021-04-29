@@ -12,6 +12,7 @@
 GameObject::GameObject(SDL_Renderer* ren)
 {
     obj_renderer = ren;
+    obj_texture = NULL;
 }
 
 void GameObject::init(const char* graphic, int start_x, int start_y, int w, int h)
@@ -28,12 +29,13 @@ void GameObject::init(const char* graphic, int start_x, int start_y, int w, int 
 
 void GameObject::update()
 {
-
+    obj_rect.x += obj_x_vel;
+    obj_rect.y += obj_y_vel;
 }
 
-void GameObject::render(SDL_Renderer*)
+void GameObject::render(SDL_Renderer* ren)
 {
-
+    SDL_RenderCopy(ren, obj_Texture, NULL, &obj_rect);
 }
 
 void GameObject::quit()

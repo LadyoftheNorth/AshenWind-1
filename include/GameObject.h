@@ -6,6 +6,7 @@ class GameObject
 {
     private:
     SDL_Renderer* obj_renderer;
+    SDL_Texture* obj_texture;
     SDL_Rect obj_rect;
     int obj_x_vel;
     int obj_y_vel;

@@ -69,18 +69,27 @@ void GameEngine::HandleEvents()
             switch (gameEvent.key.keysym.sym)
             {
             case SDLK_w:
+            case SDLK_UP:
+                player.UpdatePlayerVelocity(0, -5);
                 break;
             
             case SDLK_a:
+            case SDLK_LEFT:
+                player.UpdatePlayerVelocity(-5, 0);
                 break;
 
             case SDLK_s:
+            case SDLK_DOWN:
+                player.UpdatePlayerVelocity(0, 5);
                 break;
 
             case SDLK_d:
+            case SDLK_RIGHT:
+                player.UpdatePlayerVelocity(5, 0);
                 break;
 
             default:
+                player.UpdatePlayerVelocity(0, 0);
                 break;
             }
         }
